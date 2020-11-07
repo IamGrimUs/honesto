@@ -1,0 +1,11 @@
+footer {
+  background-color: #031323;
+  color: #ffffff;
+}
+footer figure {
+  max-width: 81.86px;
+}
+footer p {
+  font-size: 12px;
+  line-height: 18px;
+}
