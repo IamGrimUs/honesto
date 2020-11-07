@@ -1,10 +1,24 @@
 /*------------- generic elements -------------*/
+*,
+*:before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
 img {
   display: block;
   width: 100%;
 }
 
 /*------------- generic classes -------------*/
+.card {
+  background-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
 .center {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -26,6 +40,23 @@ img {
 .site-content {
   flex-grow: 1;
 }
+
+/*------------- text classes -------------*/
 .text-align-right {
   text-align: right;
+}
+.text-align-center {
+  text-align: center;
+}
+
+/*------------- button classes -------------*/
+button {
+  border: 0;
+  padding: 20px 30px;
+}
+.primary {
+  background: #ab61e5;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: 600;
 }
