@@ -15,7 +15,7 @@
   padding: 10rem 0;
   background-image: url('../images/login-background.png');
   background-size: cover;
-  height: calc(100vh - 47.969px);
+  /* height: calc(100vh - 47.969px); */
 }
 .login-form {
   margin-bottom: 34px;
