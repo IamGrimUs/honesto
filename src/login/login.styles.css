@@ -1,0 +1,28 @@
+.appLogo {
+  max-width: 54px;
+}
+.card_login {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px 90px 70px;
+}
+.card_login button {
+  margin: 0 auto;
+  max-width: 192px;
+  width: 100%;
+}
+.login-background {
+  padding: 10rem 0;
+  background-image: url('../images/login-background.png');
+  background-size: cover;
+  height: calc(100vh - 47.969px);
+}
+.login-form {
+  margin-bottom: 34px;
+  max-width: 192px;
+}
+.login-form input {
+  border: 0;
+  border-bottom: 1px solid #D9DCDE;
+  width: 100%;
+}
