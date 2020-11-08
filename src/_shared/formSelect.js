@@ -1,11 +1,11 @@
 import * as React from "react";
-import "./feedbackPeriodSelector.styles.css";
+import "./formSelect.styles.css";
 
-export const FeedbackPeriodSelector = ({ text }) => {
+export const FormSelect = ({ text }) => {
   const date = new Date().getFullYear();
 
   return (
-    <div className="feedback-selector-container">
+    <div className="form-selector-container">
       <p>{text}</p>
       <form>
         <select>

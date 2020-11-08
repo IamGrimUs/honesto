@@ -1,13 +1,13 @@
-.current-user-container figure {
+.user-container figure {
   border-radius: 50%;
   height: 40px;
   margin-right: 15px;
   width: 40px;
 }
-.current-user-container figure img {
+.user-container figure img {
   border-radius: 50%;
 }
-.current-user-container.flex-row {
+.user-container.flex-row {
   align-items: center;
 }
 .logout {

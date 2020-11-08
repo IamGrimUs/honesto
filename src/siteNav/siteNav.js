@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { CurrentUser } from "../currentUser/currentUser";
+import { User } from "../_shared/user";
 import { Bug } from "../_shared/bug";
 
 import "./siteNav.styles.css";
 
 export const SiteNav = () => {
-  const User = {
+  const currentUser = {
     name: "Kim Trantow",
     image: "https://s3.amazonaws.com/uifaces/faces/twitter/rdsaunders/128.jpg",
   };
@@ -49,7 +49,7 @@ export const SiteNav = () => {
             </p>
           </div>
           <div className="divider">&nbsp;</div>
-          <CurrentUser user={User} logout="true" />
+          <User user={currentUser} logout="true" />
         </div>
       </div>
     </div>

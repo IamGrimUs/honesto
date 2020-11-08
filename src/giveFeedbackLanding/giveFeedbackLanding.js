@@ -1,12 +1,12 @@
 import * as React from "react";
-import { CurrentUser } from "../currentUser/currentUser";
+import { User } from "../_shared/user";
 import { Title } from "../_shared/title";
-import { FeedbackPeriodSelector } from "../_shared/feedbackPeriodSelector";
+import { FormSelect } from "../_shared/formSelect";
 import { Button } from "../_shared/button.js";
 
-import "./shareFeedback.styles.css";
+import "./giveFeedbackLanding.styles.css";
 
-export const ShareFeedback = () => {
+export const GiveFeedbackLanding = () => {
   const Users = [
     {
       name: "Kim Trantow",
@@ -26,7 +26,7 @@ export const ShareFeedback = () => {
     return users.map((user) => {
       return (
         <div className="user-list-item flex-row flex-row_between">
-          <CurrentUser user={user} />
+          <User user={user} />
           <Button buttonType="secondary" text="View Submission" />
         </div>
       );
@@ -37,7 +37,7 @@ export const ShareFeedback = () => {
     <div className="center content-container">
       <div className="flex-row flex-row_between">
         <Title text="Share Feedback" />
-        <FeedbackPeriodSelector text="feedback period" />
+        <FormSelect text="feedback period" />
       </div>
       <div className="user-list-container">{renderUsers(Users)}</div>
     </div>
