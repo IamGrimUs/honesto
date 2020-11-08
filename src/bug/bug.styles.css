@@ -1,0 +1,13 @@
+.bug {
+  background-color: #AB61E5;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 11px;
+  height: 16px;
+  line-height: 16.5px;
+  position: absolute;
+  top:0;
+  right: -20px;
+  width: 16px;
+  text-align:center;
+}
