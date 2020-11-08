@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { CurrentUser } from "../currentUser/currentUser";
-import { Bug } from "../bug/bug";
+import { Bug } from "../_shared/bug";
 
 import "./siteNav.styles.css";
 
@@ -28,7 +28,7 @@ export const SiteNav = () => {
         <ul className="site-links-container">
           <li>
             {feedbackNeeded ? <Bug text={feedbackNeeded.outstanding} /> : null}
-            <Link to="">Share Feedback</Link>
+            <Link to="/share-feedback">Share Feedback</Link>
           </li>
           <li>
             {feedbackRecieved ? <Bug text={feedbackRecieved.recieved} /> : null}

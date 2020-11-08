@@ -3,15 +3,17 @@ import { Link } from "react-router-dom";
 
 import "./currentUser.styles.css";
 
-export const CurrentUser = (props) => {
+export const CurrentUser = ({ user, logout }) => {
+  console.log("user:", user);
+  const { name, image } = user;
   return (
     <div className="current-user-container flex-row">
       <figure>
-        <img src={props.user.image} alt={props.user.name} />
+        <img src={image} alt={name} />
       </figure>
       <div>
-        <p>{props.user.name}</p>
-        {props.logout ? (
+        <p>{name}</p>
+        {logout ? (
           <Link to="/" className="logout">
             LOGOUT
           </Link>
