@@ -34,7 +34,7 @@ export const ShareFeedback = () => {
   };
 
   return (
-    <div className="container center share-feedback-container">
+    <div className="center content-container">
       <div className="flex-row flex-row_between">
         <Title text="Share Feedback" />
         <FeedbackPeriodSelector text="feedback period" />
