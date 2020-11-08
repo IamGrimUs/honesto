@@ -7,10 +7,18 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  color: #031323;
+}
+figure {
+  margin: 0;
+  padding: 0;
 }
 img {
   display: block;
   width: 100%;
+}
+p {
+  margin: 0;
 }
 
 /*------------- generic classes -------------*/
@@ -29,6 +37,10 @@ img {
 .flex-row {
   display: flex;
 }
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 .flex-row_between {
   justify-content: space-between;
 }
@@ -42,6 +54,9 @@ img {
 }
 
 /*------------- text classes -------------*/
+.text-bold {
+  font-weight: 700;
+}
 .text-align-right {
   text-align: right;
 }
