@@ -4,6 +4,7 @@ import { Footer } from "./footer/footer";
 import { SiteNav } from "./siteNav/siteNav";
 import { Login } from "./login/login";
 import { ShareFeedback } from "./shareFeedback/shareFeedback";
+import { MissingPage } from "./_shared/404";
 import "./App.css";
 
 export const App = () => {
@@ -15,8 +16,11 @@ export const App = () => {
           <Route exact path="/">
             <Login />
           </Route>
-          <Route exact path="/share-feedback">
+          <Route path="/share-feedback">
             <ShareFeedback />
+          </Route>
+          <Route>
+            <MissingPage />
           </Route>
         </Switch>
       </BrowserRouter>

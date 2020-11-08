@@ -24,8 +24,10 @@ p {
 /*------------- generic classes -------------*/
 .card {
   background-color: #ffffff;
-  background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.card-padding {
+  padding: 50px 25px;
 }
 .center {
   margin-left: auto !important;
@@ -33,6 +35,11 @@ p {
 }
 .container {
   width: 90%;
+}
+.content-container {
+  margin: 60px 0 220px;
+  max-width: 780px;
+  width: 100%;
 }
 .flex-row {
   display: flex;

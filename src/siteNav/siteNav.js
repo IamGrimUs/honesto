@@ -35,10 +35,10 @@ export const SiteNav = () => {
             <Link to="">My Feedback</Link>
           </li>
           <li>
-            <Link to="">Team Feedback</Link>
+            <Link to="/">Team Feedback</Link>
           </li>
           <li>
-            <Link to="">Teams</Link>
+            <Link to="/">Teams</Link>
           </li>
         </ul>
         <div className="sub-grid flex-row flex-row_between">
