@@ -7,6 +7,9 @@
 .current-user-container figure img {
   border-radius: 50%;
 }
+.current-user-container.flex-row {
+  align-items: center;
+}
 .logout {
   color: #59636E;
   font-size: 12px;

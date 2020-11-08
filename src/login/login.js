@@ -10,6 +10,10 @@ export const Login = () => {
     console.log(userName)
   }
 
+  const loginUser = () => {
+    console.log("logging in the user now");
+  };
+
   return (
     <div className="login-background">
       <div className="center card card_login">
@@ -18,10 +22,16 @@ export const Login = () => {
         </figure>
         <h1 className="text-align-center">Honesto</h1>
         <form className="login-form center">
-          <input type="text" value={userName} onChange={(e)=>{handleInputChange(e)}} />
+          <input
+            type="text"
+            value={userName}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
         </form>
-        <Button text="Login with Google" buttonType="primary" />
+        <Button text="Login with Google" buttonType="primary" loginUser={loginUser} />
       </div>
     </div>
-  )
+  );
 }

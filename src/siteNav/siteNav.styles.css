@@ -28,16 +28,21 @@
   margin: 0 30px 0;
   padding: 8px 0 0;
   position: relative;
+  transition: all .3s ease-in-out
+}
+.site-links-container li:after {
+  background-color: #f2f3f4;
+  content: '';
+  height: 3px;
+  position: absolute;
+  top: 56px;
+  left: 5px;
+  width: 90%;
+  transition: background-color .3s ease-in-out
 }
 
 .site-links-container li:hover::after, .site-links-container li:active::after{
   background-color: #AB61E5;
-  content: '';
-  height: 3px;
-  position: absolute;
-  top: 58px;
-  left: 5px;
-  width: 90%;
 }
 .feedback-cycle-container {
   font-size: 11px;

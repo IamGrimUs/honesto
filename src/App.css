@@ -67,11 +67,21 @@ p {
 /*------------- button classes -------------*/
 button {
   border: 0;
+  cursor: pointer;
   padding: 20px 30px;
+  transition: background-color .3s ease-in-out;
 }
 .primary {
   background: #ab61e5;
   border-radius: 4px;
   color: #ffffff;
   font-weight: 600;
+}
+.secondary {
+  background-color: #ffffff;
+  border: 1px solid #D9DCDE;
+  border-radius: 4px;
+}
+.secondary:hover, .secondary:active {
+  background-color: #F2F3F4;
 }
