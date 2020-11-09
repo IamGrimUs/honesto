@@ -18,23 +18,20 @@ export const GiveFeedbackLanding = () => {
   };
 
   const provideFeedback = (id) => {
-    console.log(id);
     push(`/feedback-questions/${id}`);
   };
 
   const renderUsers = () => {
     return userList.map((user) => {
-      if (feedbackList.length > 0) {
-        feedbackList.forEach((userWithFeedback) => {
-          if (userWithFeedback.id === user.id) {
-            return (
-              <div className="user-list-item flex-row flex-row_between" key={user.id}>
-                <User user={user} />
-                <Button buttonType="secondary" text="View Submission" buttonAction={() => viewSubmission(user.id)} />
-              </div>
-            );
-          }
-        });
+      const doesUserHaveFeedback = feedbackList.find((feedback) => feedback.recipientId === user.id);
+      if (doesUserHaveFeedback) {
+        return (
+          <div className="user-list-item flex-row flex-row_between" key={user.id}>
+            <User user={user} />
+            <Button buttonType="secondary" text="View Submission" buttonAction={() => viewSubmission(user.id)} />
+          </div>
+        );
+      ;
       }
       return (
         <div className="user-list-item flex-row flex-row_between" key={user.id}>

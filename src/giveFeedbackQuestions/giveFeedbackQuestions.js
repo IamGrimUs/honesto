@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Title } from "../_shared/title";
 import { Button } from "../_shared/button";
 import { useFeedback } from "../_shared/context/useFeedback";
@@ -24,11 +24,12 @@ const useStyles = makeStyles({
 });
 
 export const GiveFeedbackQuestions = () => {
+  const { push } = useHistory();
   const { id } = useParams();
   const classes = useStyles();
   const { userList, currentUser } = useUserInfo();
   const { questionList, setQuestionList } = useQuestionList();
-  const { addUserFeedback, feedbackList } = useFeedback();
+  const { addUserFeedback } = useFeedback();
   const [selectedQuestionList, setSelectedQuestionList] = useState([]);
   const [selectedValue, setSelectedValue] = useState(0);
   const [userRecievingFeedback, setUserRecievingFeedback] = useState({});
@@ -144,7 +145,6 @@ export const GiveFeedbackQuestions = () => {
           ],
         },
       ]);
-    console.log("selectedQuestionList", selectedQuestionList);
     setSelectedValue('')
   };
 
@@ -158,13 +158,12 @@ export const GiveFeedbackQuestions = () => {
   };
 
   const submitFeedback = () => {
-    console.log("you have submitted");
     addUserFeedback({
       reporterId: currentUser.id,
       recipientId: id,
       answers: selectedQuestionList,
     });
-    console.log('fb list', feedbackList)
+    push("/feedback-landing");
   };
 
   const handleClose = () => setShowError(false);
