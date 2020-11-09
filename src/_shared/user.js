@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 import "./user.styles.css";
 
 export const User = ({ user, logout }) => {
-  console.log("user:", user);
-  const { name, image } = user;
+  const { firstName, lastName, avatar } = user;
   return (
     <div className="user-container flex-row">
-      <figure>
-        <img src={image} alt={name} />
+      <figure className="profile-image">
+        <img src={avatar} alt={`${firstName} ${lastName}`} className="circle" />
       </figure>
       <div>
-        <p>{name}</p>
+        <p>{`${firstName} ${lastName}`}</p>
         {logout ? (
           <Link to="/" className="logout">
             LOGOUT

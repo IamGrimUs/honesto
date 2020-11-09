@@ -1,17 +1,15 @@
 .user-container figure {
-  border-radius: 50%;
-  height: 40px;
   margin-right: 15px;
-  width: 40px;
 }
-.user-container figure img {
-  border-radius: 50%;
-}
+
 .user-container.flex-row {
   align-items: center;
 }
+.user-container .profile-image {
+  margin-right: 15px;
+}
 .logout {
-  color: #59636E;
+  color: #59636e;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.15em;

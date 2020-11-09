@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #031323;
 }
@@ -20,6 +20,14 @@ img {
 p {
   margin: 0;
 }
+a {
+  color: #031323;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
 
 /*------------- generic classes -------------*/
 .card {
@@ -33,6 +41,9 @@ p {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+.circle {
+  border-radius: 50%;
+}
 .container {
   width: 90%;
 }
@@ -40,6 +51,9 @@ p {
   margin: 60px 0 220px;
   max-width: 780px;
   width: 100%;
+}
+.error-message {
+  margin-bottom: 10px;
 }
 .flex-row {
   display: flex;
@@ -51,6 +65,21 @@ p {
 .flex-row_between {
   justify-content: space-between;
 }
+.flex-row_item-center{
+  align-items: center;
+}
+.title-container {
+  width: 70%;
+}
+.profile-image {
+  height: 40px;
+  width: 40px;
+}
+.profile-image_lg {
+  height: 60px;
+  width: 60px;
+}
+
 .site {
   display: flex;
   flex-direction: column;
@@ -60,7 +89,20 @@ p {
   flex-grow: 1;
 }
 
+
 /*------------- text classes -------------*/
+.title {
+  font-size: 31px;
+  line-height: 36px;
+}
+.subHead {
+  color: #ACB1B6;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
 .text-bold {
   font-weight: 700;
 }
@@ -75,8 +117,9 @@ p {
 button {
   border: 0;
   cursor: pointer;
-  padding: 20px 30px;
-  transition: background-color .3s ease-in-out;
+  min-width: 150px;
+  padding: 15px 30px;
+  transition: background-color 0.3s ease-in-out;
 }
 .primary {
   background: #ab61e5;
@@ -86,9 +129,10 @@ button {
 }
 .secondary {
   background-color: #ffffff;
-  border: 1px solid #D9DCDE;
+  border: 1px solid #d9dcde;
   border-radius: 4px;
 }
-.secondary:hover, .secondary:active {
-  background-color: #F2F3F4;
+.secondary:hover,
+.secondary:active {
+  background-color: #f2f3f4;
 }

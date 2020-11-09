@@ -2,20 +2,23 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { User } from "../_shared/user";
 import { Bug } from "../_shared/bug";
+import { useUserInfo } from "../_shared/context/useUserInfo";
 
 import "./siteNav.styles.css";
 
 export const SiteNav = () => {
-  const currentUser = {
-    name: "Kim Trantow",
-    image: "https://s3.amazonaws.com/uifaces/faces/twitter/rdsaunders/128.jpg",
-  };
+  const { currentUser } = useUserInfo();
+
   const feedbackNeeded = {
     outstanding: 2,
   };
   const feedbackRecieved = {
     recieved: 8,
   };
+
+  if (!currentUser) {
+    return null;
+  }
 
   return (
     <div className="site-navigation">
@@ -28,14 +31,14 @@ export const SiteNav = () => {
         <ul className="site-links-container">
           <li>
             {feedbackNeeded ? <Bug text={feedbackNeeded.outstanding} /> : null}
-            <Link to="/share-feedback">Share Feedback</Link>
+            <Link to="/feedback-landing">Share Feedback</Link>
           </li>
           <li>
             {feedbackRecieved ? <Bug text={feedbackRecieved.recieved} /> : null}
             <Link to="">My Feedback</Link>
           </li>
           <li>
-            <Link to="/">Team Feedback</Link>
+            <Link to="/feedback-questions">Team Feedback</Link>
           </li>
           <li>
             <Link to="/">Teams</Link>
