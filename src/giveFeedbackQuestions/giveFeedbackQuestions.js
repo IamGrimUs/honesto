@@ -57,6 +57,7 @@ export const GiveFeedbackQuestions = () => {
 
   useEffect(() => {
     getQuestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showError]);
 
   useEffect(() => {

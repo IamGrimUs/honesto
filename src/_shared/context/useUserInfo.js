@@ -21,6 +21,7 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     updateUserList(userList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   const updateUserList = (newUsers) => {

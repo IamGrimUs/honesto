@@ -11,6 +11,8 @@ Currently the app is a work in progress with.
 
 Currently a user can login, select a user and provide feedback on the selected user. The feedback is currently stored in a persisted state <https://github.com/donavon/use-persisted-state>.
 
+### Deployed to Netlify
+
 ### What needs work
 
 A bit of everything...
