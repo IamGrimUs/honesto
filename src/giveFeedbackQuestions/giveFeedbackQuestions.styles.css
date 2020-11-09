@@ -1,0 +1,15 @@
+.text-link {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.progress-bar-container {
+  margin: 36px 0 16px;
+}
+.third {
+  width: 33.3%;
+}
+.button-container {
+  margin-top: 36px;
+}

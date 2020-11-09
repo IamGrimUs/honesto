@@ -8,6 +8,9 @@
   cursor: pointer;
   text-decoration: none;
 }
+.site-navigation a:hover {
+  text-decoration: none;
+}
 .logo-container {
   width: 100px
 }

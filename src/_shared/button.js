@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-export const Button = ({ text, buttonType, loginUser }) => {
+export const Button = ({ text, buttonType, buttonAction }) => {
   const handleClick = () => {
-    loginUser();
+    buttonAction();
   };
   return (
     <button className={buttonType} onClick={handleClick}>
