@@ -12,23 +12,7 @@ const DEFAULT_FEEDBACK_CONTEXT = {
   getFeedbackByReporter: () => {},
 };
 
-/*
-  // feedback
-  [{
-    reporterId: string;
-    recipientId: string;
-    answers: [
-      {
-        questionId: "questionId1"
-        value: "You did great!"
-      },{
-        questionId: "questionId2"
-        value: "5"
 
-      }
-    ]
-  }]
-*/
 
 const FeedbackContext = createContext(DEFAULT_FEEDBACK_CONTEXT);
 

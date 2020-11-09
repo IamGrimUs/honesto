@@ -35,13 +35,13 @@ export const SiteNav = () => {
           </li>
           <li>
             {feedbackRecieved ? <Bug text={feedbackRecieved.recieved} /> : null}
-            <Link to="">My Feedback</Link>
+            <Link to="/404">My Feedback</Link>
           </li>
           <li>
-            <Link to="/feedback-questions">Team Feedback</Link>
+            <Link to="/404">Team Feedback</Link>
           </li>
           <li>
-            <Link to="/">Teams</Link>
+            <Link to="/404">Teams</Link>
           </li>
         </ul>
         <div className="sub-grid flex-row flex-row_between">
