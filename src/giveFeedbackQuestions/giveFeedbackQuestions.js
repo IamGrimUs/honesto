@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Title } from "../_shared/title";
 import { Button } from "../_shared/button";
+import { useFeedback } from "../_shared/context/useFeedback";
 import { useQuestionList } from "../_shared/context/useQuestions";
 import { useUserInfo } from "../_shared/context/useUserInfo";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -25,8 +26,10 @@ const useStyles = makeStyles({
 export const GiveFeedbackQuestions = () => {
   const { id } = useParams();
   const classes = useStyles();
-  const { userList } = useUserInfo();
+  const { userList, currentUser } = useUserInfo();
   const { questionList, setQuestionList } = useQuestionList();
+  const { addUserFeedback, feedbackList } = useFeedback();
+  const [selectedQuestionList, setSelectedQuestionList] = useState([]);
   const [selectedValue, setSelectedValue] = useState(0);
   const [userRecievingFeedback, setUserRecievingFeedback] = useState({});
   const [showError, setShowError] = useState(false);
@@ -49,7 +52,6 @@ export const GiveFeedbackQuestions = () => {
         setUserRecievingFeedback(user);
       }
     });
-    console.log("user recieving", userRecievingFeedback);
   });
 
   useEffect(() => {
@@ -68,17 +70,16 @@ export const GiveFeedbackQuestions = () => {
     });
   }, [counter]);
 
-  const renderScale = (num) => {
-    console.log("num", num);
+  const renderScale = () => {
     const numArray = [];
     for (let i = 0; i < 10; i++) {
       numArray.push(i);
     }
     return numArray.map((number, index) => {
-      if (num >= index) {
-        return <div className="scale-square scale-square_selected" key={index} onClick={() => setSelectedValue(index)}></div>;
+      if (selectedValue >= index) {
+        return <div className="scale-square scale-square_selected" key={index} onClick={() => setSelectedValue(number)}></div>;
       }
-      return <div className="scale-square" key={index} onClick={() => setSelectedValue(index)}></div>;
+      return <div className="scale-square" key={index} onClick={() => setSelectedValue(number)}></div>;
     });
   };
 
@@ -90,15 +91,16 @@ export const GiveFeedbackQuestions = () => {
       const optionZero = questionList[counter]["options"][0]["label"];
       const optionOne = questionList[counter]["options"][1]["label"];
       const optionTwo = questionList[counter]["options"][2]["label"];
+
       return (
         <div>
-          <div className="question-option" onClick={() => setSelectedValue(optionZero)}>
+          <div className="question-option" onClick={() => setSelectedValue(questionList[counter]["options"][0]["value"])}>
             {optionZero}
           </div>
-          <div className="question-option" onClick={() => setSelectedValue(optionOne)}>
+          <div className="question-option" onClick={() => setSelectedValue(questionList[counter]["options"][1]["value"])}>
             {optionOne}
           </div>
-          <div className="question-option" onClick={() => setSelectedValue(optionTwo)}>
+          <div className="question-option" onClick={() => setSelectedValue(questionList[counter]["options"][2]["value"])}>
             {optionTwo}
           </div>
         </div>
@@ -130,12 +132,39 @@ export const GiveFeedbackQuestions = () => {
     }
   };
 
+  const captureQuestionValue = () => {
+      setSelectedQuestionList([
+        ...selectedQuestionList,
+        {
+          answers: [
+            {
+              questionId: questionList[counter]["id"],
+              questionValue: selectedValue,
+            },
+          ],
+        },
+      ]);
+    console.log("selectedQuestionList", selectedQuestionList);
+    setSelectedValue('')
+  };
+
   const previousQuestion = () => {
     setCounter((counter) => counter - 1);
   };
 
   const nextQuestion = () => {
     setCounter((counter) => counter + 1);
+    captureQuestionValue();;
+  };
+
+  const submitFeedback = () => {
+    console.log("you have submitted");
+    addUserFeedback({
+      reporterId: currentUser.id,
+      recipientId: id,
+      answers: selectedQuestionList,
+    });
+    console.log('fb list', feedbackList)
   };
 
   const handleClose = () => setShowError(false);
@@ -143,6 +172,7 @@ export const GiveFeedbackQuestions = () => {
   if (questionList.length === 0) {
     return <CircularProgress />;
   }
+
   return (
     <div className="content-container center">
       <div className="text-link">{counter !== 0 ? <p onClick={previousQuestion}>&lt; back</p> : null}</div>
@@ -157,7 +187,7 @@ export const GiveFeedbackQuestions = () => {
         <div className="flex-row button-container">
           <div className="third text-align-left">{counter !== 0 ? <Button text="Previous" buttonType="secondary" buttonAction={previousQuestion} /> : null}</div>
           <div className="third text-align-center">{questionList[counter]["required"] ? <Button text="Skip" buttonType="secondary" buttonAction={nextQuestion} /> : null}</div>
-          <div className="third text-align-right">{counter === questionList.length - 1 ? null : <Button text="Next" buttonType="secondary" buttonAction={nextQuestion} />}</div>
+          <div className="third text-align-right">{counter === questionList.length - 1 ? <Button text="Submit Feedback" buttonType="primary" buttonAction={submitFeedback} /> : <Button text="Next" buttonType="secondary" buttonAction={nextQuestion} />}</div>
         </div>
         <div className={`${classes.root} progress-bar-container`}>
           <LinearProgress variant="determinate" value={progress} />
